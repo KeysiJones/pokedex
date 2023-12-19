@@ -5,6 +5,10 @@ export const PokemonContext = createContext();
 
 const PokemonProvider = ({ children }) => {
     const [pokemonData, setPokemonData] = useState([])
+    
+    function getPokemonById (id) {
+        return pokemonData.find(pokemon => pokemon.id == id)
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,7 +26,7 @@ const PokemonProvider = ({ children }) => {
     }, [])
 
     return (
-        <PokemonContext.Provider value={{ pokemonData }}>
+        <PokemonContext.Provider value={{ pokemonData, getPokemonById }}>
             {children}
         </PokemonContext.Provider>
     )

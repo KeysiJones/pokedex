@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Root from './routes/Root.jsx'
 import './index.css'
 import {
   createBrowserRouter,
@@ -13,16 +12,12 @@ import { PokemonProvider } from './contexts/PokemonContext.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <PokemonList />,
   },
   {
-    path: "pokemon/:pokemonName",
+    path: "pokemons/:pokemonId",
     element: <Details />,
   },
-  {
-    path: "/pokemons",
-    element: <PokemonList />
-  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
